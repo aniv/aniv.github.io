@@ -45,6 +45,10 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+      - name: Update Submodules
+        run: |
+          git submodule sync # Ensure submodule URLs are updated
+          git submodule update --init --recursive # Initialize and update submodules
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
